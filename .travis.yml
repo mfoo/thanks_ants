@@ -3,4 +3,4 @@ cache: bundler
 rvm:
   - 2.1.5
 script: 'bundle exec rspec'
-before_install: 'cd thanks_ants
+before_install: 'cd thanks_ants'
