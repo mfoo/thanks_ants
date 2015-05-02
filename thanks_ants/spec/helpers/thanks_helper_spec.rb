@@ -12,7 +12,7 @@ RSpec.describe ThanksHelper, type: :helper do
 
     it { expect(helper.thanks('Bob')).to eq('Thob') }
 
-    it { expect(helper.thanks('Bob Marley')).to eq('Thob Marley') }
+    it { expect(helper.thanks('Bob Marley')).to eq('Thob marley') }
 
   end
 

@@ -12,7 +12,7 @@ RSpec.describe BlessYouHelper, type: :helper do
 
     it { expect(helper.blessyou('Bob')).to eq('Blob') }
 
-    it { expect(helper.blessyou('Bob Marley')).to eq('Blob Marley') }
+    it { expect(helper.blessyou('Bob Marley')).to eq('Blob marley') }
 
   end
 
