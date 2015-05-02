@@ -24,7 +24,7 @@ gem 'jbuilder', '~> 2.0'
 # Use Unicorn as the app server
 gem 'unicorn'
 
-group :development, :test do
+group :development do
   gem 'pry'
   gem 'pry-debugger'
   gem 'pry-remote'
