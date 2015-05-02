@@ -12,7 +12,7 @@ RSpec.describe ThanksAntsHelper, type: :helper do
     end
 
     it 'rejects strings with no vowels' do
-      expect{helper.validate_input('sky', TestError, 'foo')}.to raise_error(TestError, /sky.+no vowels/)
+      expect{helper.validate_input('bbbb', TestError, 'foo')}.to raise_error(TestError, /bbbb.+no vowels/)
     end
 
     it 'rejects invalid URLs' do
@@ -29,9 +29,20 @@ RSpec.describe ThanksAntsHelper, type: :helper do
 
     it 'mutates the input to compress multiple spaces into a single space' do
       # TODO: This API is weird. Should this be validate_input! or a second method?
-      input = 'Test      input'
-      expect(helper.validate_input(input, TestError, /foo/)).to eq(1)
-      expect(input).to eq('Test input')
+      input = 'test      input'
+      expect(helper.validate_input(input, TestError, 'foo')).to eq(1)
+      expect(input).to eq('test input')
+    end
+
+    it 'considers "y" a vowel' do
+      input = 'skyler'
+      expect(helper.validate_input(input, TestError, 'foo')).to eq(2)
+    end
+
+    it 'downcases the input' do
+      input = "BOB"
+      expect(helper.validate_input(input, TestError, 'foo')).to eq(1)
+      expect(input).to eq('bob')
     end
 
   end

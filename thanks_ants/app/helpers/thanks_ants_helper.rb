@@ -19,10 +19,11 @@ module ThanksAntsHelper
   def sanitise!(input)
     input.squeeze!(' ')
     input.strip!
+    input.downcase!
   end
 
   def first_vowel_index(string)
-    string.chars.find_index { |c| 'aeiou'.include? c }
+    string.chars.find_index { |c| 'aeiouy'.include? c }
   end
 
   def after_index(string, index)
