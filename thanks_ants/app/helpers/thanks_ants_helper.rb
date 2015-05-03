@@ -2,24 +2,22 @@ module ThanksAntsHelper
 
   protected
 
-  # Validate the input and then returns the index of the first vowel into the
-  # provided +input+.
+  # Validate and sanitise +input+ and then return the sanitised string
   def validate_input(input, error_class, action)
-    sanitise!(input)
-    raise error_class.new("#{input} is un#{action}able") unless input =~ /^[a-zA-Z]+( [a-zA-Z]+)*$/i
+    sanitised_input = sanitise(input)
+    raise error_class.new("#{input} is un#{action}able") unless sanitised_input =~ /^[a-zA-Z]+( [a-zA-Z]+)*$/i
+    raise error_class.new("#{input} has no vowels") if first_vowel_index(sanitised_input).nil?
+    sanitised_input
+  end
 
-    fvi = first_vowel_index(input)
-    raise error_class.new("#{input} has no vowels") unless fvi
-
-    fvi
+  def get_append_string(input)
+    after_index(input, first_vowel_index(input))
   end
 
   private
 
-  def sanitise!(input)
-    input.squeeze!(' ')
-    input.strip!
-    input.downcase!
+  def sanitise(input)
+    input.squeeze(' ').strip.downcase
   end
 
   def first_vowel_index(string)

@@ -8,13 +8,13 @@ module ThanksHelper
   end
 
   def thanks(thankee)
-    thank_thankee(validate_input(thankee, UnthankableError, "thank"), thankee)
+    thank_thankee(validate_input(thankee, UnthankableError, "thank"))
   end
 
   private
 
-  def thank_thankee(first_vowel_index, thankee)
-    "Th#{after_index(thankee, first_vowel_index)}"
+  def thank_thankee(thankee)
+    "Th#{get_append_string(thankee)}"
   end
 
 end

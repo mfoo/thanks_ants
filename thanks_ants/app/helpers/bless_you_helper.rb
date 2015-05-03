@@ -8,13 +8,13 @@ module BlessYouHelper
   public
 
   def blessyou(blessee)
-    bless_blessee(validate_input(blessee, UnblessableError, "bless"), blessee)
+    bless_blessee(validate_input(blessee, UnblessableError, "bless"))
   end
 
   private
 
-  def bless_blessee(first_vowel_index, blessee)
-    "Bl#{after_index(blessee, first_vowel_index)}"
+  def bless_blessee(blessee)
+    "Bl#{get_append_string(blessee)}"
   end
 
 end

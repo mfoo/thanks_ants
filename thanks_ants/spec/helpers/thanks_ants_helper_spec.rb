@@ -23,26 +23,22 @@ RSpec.describe ThanksAntsHelper, type: :helper do
       expect{ helper.validate_input('', TestError, 'foo') }.to raise_error(TestError, /unfoo/)
     end
 
-    it 'strips out leading and trailing whitespace and returns the index of the first vowel' do
-      expect(helper.validate_input('  Helper ', TestError, 'foo')).to eq(1)
+    it 'strips out leading and trailing whitespace' do
+      expect(helper.validate_input('  Helper ', TestError, 'foo')).to eq('helper')
     end
 
-    it 'mutates the input to compress multiple spaces into a single space' do
-      # TODO: This API is weird. Should this be validate_input! or a second method?
+    it 'compresses multiple spaces into a single space' do
       input = 'test      input'
-      expect(helper.validate_input(input, TestError, 'foo')).to eq(1)
-      expect(input).to eq('test input')
+      expect(helper.validate_input(input, TestError, 'foo')).to eq('test input')
+      expect(input).to eq('test      input')
     end
 
     it 'considers "y" a vowel' do
-      input = 'skyler'
-      expect(helper.validate_input(input, TestError, 'foo')).to eq(2)
+      expect(helper.validate_input('skyler', TestError, 'foo')).to eq('skyler')
     end
 
     it 'downcases the input' do
-      input = "BOB"
-      expect(helper.validate_input(input, TestError, 'foo')).to eq(1)
-      expect(input).to eq('bob')
+      expect(helper.validate_input('BOB', TestError, 'foo')).to eq('bob')
     end
 
   end
