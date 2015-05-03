@@ -32,4 +32,4 @@ JSON responses are in the format:
 You should simply be able to run `bundle install` and then `rails s` inside the `thanks_ants` subfolder. This Rails application has no models and requires no database connection. The application code is almost entirely contained within two modules; `ThanksHelper` and `BlessYouHelper`.
 
 ### Docker service
-If you want to try the project out on Docker, the root of the project contains a `Dockerfile` and some configuration files. The Docker container configures a [unicorn](http://unicorn.bogomips.org/) master to run multiple Rails workers, an [nginx](http://nginx.org/) web server, and [supervisord](http://supervisord.org/) for executing both of these services.
+If you want to try the project out on Docker, the root of the project contains a `Dockerfile` and some configuration files. The Docker container configures a [unicorn](http://unicorn.bogomips.org/) master to run multiple Rails workers and it exposes port 8080.

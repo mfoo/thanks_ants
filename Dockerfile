@@ -1,20 +1,14 @@
-FROM nginx
+FROM debian:jessie
 
 MAINTAINER Martin Foot, martin@mfoot.com
 
 # Package cleanup and preparation
 RUN apt-get update
 RUN apt-get -y upgrade
-RUN apt-get -y install build-essential
 
-# Nginx configuration
-RUN echo "daemon off;" >> /etc/nginx/nginx.conf
-
-# Rails configuration
-RUN apt-get install -y ruby ruby-dev rubygems libxml2-dev zlib1g-dev libmysqlclient-dev
-
-# Copy the gem files to another directory and bundle install. Prevents docker
-# build re-running bundle install when files other than the Gemfiles change
+# Ruby and gem dependencies
+RUN apt-get -y install build-essential ruby ruby-dev rubygems
+RUN apt-get -y install libxml2-dev zlib1g-dev libmysqlclient-dev
 RUN gem install bundler
 
 COPY thanks_ants /thanks_ants
@@ -22,14 +16,6 @@ WORKDIR /thanks_ants
 RUN bundle install --without development test
 RUN bundle exec rake assets:precompile
 
-# Service configuration
-RUN apt-get install -y supervisor
-COPY unicorn.conf /etc/supervisor/conf.d/
-COPY nginx.conf /etc/supervisor/conf.d/
+EXPOSE 8080
 
-COPY nginx_default.conf /etc/nginx/conf.d/default.conf
-#RUN rm -f /etc/nginx/conf.d/default.conf
-
-EXPOSE 80
-
-CMD /usr/bin/supervisord -n
+CMD bundle exec unicorn -E production -c config/unicorn.rb
