@@ -16,6 +16,8 @@ This app exposes the following routes:
 * **blessyou/:blessee**
 	* /blessyou/ants => blants
 	* /blessyou/bob => blob
+* **/thing/:thing/:thingee** (for arbitrary calls, no JSON response yet)
+	* /thing/hello/nick => hick
 
 The API is accessible through both HTTP and JSON based on the `Content-Type` and `Accepts` headers.
 
