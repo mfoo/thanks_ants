@@ -1,12 +1,15 @@
 module ThanksAntsHelper
 
+  class ThanksAntsError < StandardError
+  end
+
   protected
 
   # Validate and sanitise +input+ and then return the sanitised string
-  def validate_input(input, error_class, action)
+  def validate_input(input, action)
     sanitised_input = sanitise(input)
-    raise error_class.new("#{input} is un#{action}able") unless sanitised_input =~ /^[a-zA-Z]+( [a-zA-Z]+)*$/i
-    raise error_class.new("#{input} has no vowels") if first_vowel_index(sanitised_input).nil?
+    raise ThanksAntsError.new("#{input} is un#{action}able") unless sanitised_input =~ /^[a-zA-Z]+( [a-zA-Z]+)*$/i
+    raise ThanksAntsError.new("#{input} has no vowels") if first_vowel_index(sanitised_input).nil?
     sanitised_input
   end
 

@@ -4,11 +4,8 @@ module ThanksHelper
 
   include ThanksAntsHelper
 
-  class UnthankableError < StandardError
-  end
-
   def thanks(thankee)
-    thank_thankee(validate_input(thankee, UnthankableError, "thank"))
+    thank_thankee(validate_input(thankee, "thank"))
   end
 
   private

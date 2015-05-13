@@ -2,13 +2,10 @@ module BlessYouHelper
 
   include ThanksAntsHelper
 
-  class UnblessableError < StandardError
-  end
-
   public
 
   def blessyou(blessee)
-    bless_blessee(validate_input(blessee, UnblessableError, "bless"))
+    bless_blessee(validate_input(blessee, "bless"))
   end
 
   private
