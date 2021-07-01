@@ -1,7 +1,0 @@
-language: ruby
-cache: bundler
-rvm:
-  - 2.1.5
-script: 'bundle exec rspec'
-before_install: 'cd thanks_ants'
-bundler_args: --without development

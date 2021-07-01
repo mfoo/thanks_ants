@@ -1,5 +1,3 @@
-[![Build Status](https://travis-ci.org/mfoo/thanks_ants.svg?branch=master)](https://travis-ci.org/mfoo/thanks_ants)
-
 # Thanks ants, thants
 
 This project is a basic and minimal Rails 4 API to convert inputs like "thanks ants" to "thants", a joke from the comedy television show [Look Around You](https://en.wikipedia.org/wiki/Look_Around_You).
