@@ -1,9 +1,7 @@
 class BlessYouController < ApplicationController
-
   include BlessYouHelper
 
   def bless_you
-    @response = blessyou(params[:blessee])
+    render json: { blessyou: blessyou(params.require(:blessee)) }
   end
-
 end

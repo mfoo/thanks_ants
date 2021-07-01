@@ -19,7 +19,7 @@ This app exposes the following routes:
 * **/thing/:thing/:thingee** (for arbitrary calls, no JSON response yet)
 	* /thing/hello/nick => hick
 
-The API is accessible through both HTTP and JSON based on the `Content-Type` and `Accepts` headers.
+The API is accessible through JSON based on the `Content-Type` and `Accepts` header.
 
 JSON responses are in the format:
 
@@ -34,4 +34,4 @@ JSON responses are in the format:
 You should simply be able to run `bundle install` and then `rails s` inside the `thanks_ants` subfolder. This Rails application has no models and requires no database connection. The application code is almost entirely contained within two modules; `ThanksHelper` and `BlessYouHelper`.
 
 ### Docker service
-If you want to try the project out on Docker, the root of the project contains a `Dockerfile` and some configuration files. The Docker container configures a [unicorn](http://unicorn.bogomips.org/) master to run multiple Rails workers and it exposes port 8080.
+If you want to try the project out on Docker, the root of the project contains a `Dockerfile` and some configuration files. The Docker container configures a puma master to run multiple Rails workers and it exposes port 3000.

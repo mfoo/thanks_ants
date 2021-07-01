@@ -1,9 +1,7 @@
 class ThanksController < ApplicationController
-
   include ThanksHelper
 
   def thank
-    @response = thanks(params[:thankee])
+    render json: { thanks: thanks(params.require(:thankee)) }
   end
-
 end

@@ -16,6 +16,6 @@ WORKDIR /thanks_ants
 RUN bundle install --without development test
 RUN bundle exec rake assets:precompile
 
-EXPOSE 8080
+EXPOSE 3000
 
-CMD bundle exec unicorn -E production -c config/unicorn.rb
+CMD bundle exec rails s
