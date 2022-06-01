@@ -1,6 +1,6 @@
 # Thanks ants, thants
 
-This project is a basic and minimal Rails 4 API to convert inputs like "thanks ants" to "thants", a joke from the comedy television show [Look Around You](https://en.wikipedia.org/wiki/Look_Around_You).
+This project is a basic and minimal Rails API to convert inputs like "thanks ants" to "thants", a joke from the comedy television show [Look Around You](https://en.wikipedia.org/wiki/Look_Around_You).
 
 As an example, see [this clip on YouTube](https://www.youtube.com/watch?v=9jtU9BbReQk).
 

@@ -1,4 +1,4 @@
-FROM debian:jessie
+FROM ubuntu:22.04
 
 MAINTAINER Martin Foot, martin@mfoot.com
 
@@ -7,14 +7,20 @@ RUN apt-get update
 RUN apt-get -y upgrade
 
 # Ruby and gem dependencies
-RUN apt-get -y install build-essential ruby ruby-dev rubygems
-RUN apt-get -y install libxml2-dev zlib1g-dev libmysqlclient-dev
+RUN DEBIAN_FRONTEND=noninteractive TZ=Etc/UTC apt-get -y install \
+	build-essential \
+	default-libmysqlclient-dev \
+	libxml2-dev \
+	ruby \
+	ruby-dev \
+	rubygems \
+	tzdata \
+	zlib1g-dev
 RUN gem install bundler
 
 COPY thanks_ants /thanks_ants
 WORKDIR /thanks_ants
 RUN bundle install --without development test
-RUN bundle exec rake assets:precompile
 
 EXPOSE 3000
 
