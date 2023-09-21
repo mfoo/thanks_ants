@@ -110,7 +110,7 @@ GEM
     nokogiri (1.15.4)
       mini_portile2 (~> 2.8.2)
       racc (~> 1.4)
-    puma (6.3.1)
+    puma (6.4.0)
       nio4r (~> 2.0)
     racc (1.7.1)
     rack (2.2.8)
@@ -184,7 +184,7 @@ DEPENDENCIES
   bootsnap (>= 1.4.4)
   byebug
   listen (~> 3.8)
-  puma (~> 6.3)
+  puma (~> 6.4)
   rails (~> 7.0.8)
   rspec-rails
   spring
