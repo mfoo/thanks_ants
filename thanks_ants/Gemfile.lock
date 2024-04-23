@@ -194,7 +194,7 @@ GEM
       rspec-mocks (~> 3.13)
       rspec-support (~> 3.13)
     rspec-support (3.13.1)
-    spring (4.2.0)
+    spring (4.2.1)
     sqlite3 (1.7.3)
       mini_portile2 (~> 2.8.0)
     stringio (3.1.0)
