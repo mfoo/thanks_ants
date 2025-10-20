@@ -133,7 +133,7 @@ GEM
     psych (5.2.6)
       date
       stringio
-    puma (7.0.4)
+    puma (7.1.0)
       nio4r (~> 2.0)
     racc (1.8.1)
     rack (3.2.3)
@@ -226,7 +226,7 @@ DEPENDENCIES
   bootsnap (>= 1.4.4)
   byebug
   listen (~> 3.9)
-  puma (~> 7.0)
+  puma (~> 7.1)
   rails (~> 8.0.3)
   rspec-rails
   spring
